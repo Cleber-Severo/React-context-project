@@ -4,18 +4,18 @@ import Login from 'pages/Login'
 import { useState } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
+import { UsuarioContext } from 'common/context/Usuario'
+
 const Router = () => {
-    const[nome, setNome] = useState("");
-    const[saldo,setSaldo] = useState(0)
+    const [nome, setNome] = useState("");
+    const [saldo, setSaldo] = useState(0)
     return (
         <BrowserRouter>
             <Switch>
-                <Route exact path="/"> 
-                    <Login 
-                        nome={nome} 
-                        setNome={setNome} 
-                        saldo={saldo} 
-                        setSaldo={setSaldo} />
+                <Route exact path="/">
+                    <UsuarioContext.Provider value={{ nome, setNome, saldo, setSaldo}} >
+                        <Login/>
+                    </UsuarioContext.Provider>
                 </Route>
                 <Route path="/feira">
                     <Feira />
