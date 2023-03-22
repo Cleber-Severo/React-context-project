@@ -6,21 +6,21 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { UsuarioProvider } from 'common/context/Usuario'
 
 const Router = () => {
-    
+
     return (
         <BrowserRouter>
             <Switch>
-                <Route exact path="/">
-                    <UsuarioProvider>
-                        <Login/>
-                    </UsuarioProvider>
-                </Route>
-                <Route path="/feira">
-                    <Feira />
-                </Route>
-                <Route path="/carrinho">
-                    <Carrinho />
-                </Route>
+                <UsuarioProvider>
+                    <Route exact path="/">
+                        <Login />
+                    </Route>
+                    <Route path="/feira">
+                        <Feira />
+                    </Route>
+                 </UsuarioProvider>
+                    <Route path="/carrinho">
+                        <Carrinho />
+                    </Route>
             </Switch>
         </BrowserRouter>
     )
