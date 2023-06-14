@@ -17,10 +17,10 @@ const Router = () => {
                         <Login />
                     </Route>
                     <CarrinhoProvider>
-                        <Route path="/feira">
-                            <Feira />
-                        </Route>
                         <PagamentoProvider>
+                            <Route path="/feira">
+                                <Feira />
+                            </Route>
                             <Route path="/carrinho">
                                 <Carrinho />
                             </Route>
