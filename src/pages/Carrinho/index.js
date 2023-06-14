@@ -4,13 +4,20 @@ import { useCarrinhoContext } from 'common/context/Carrinho';
 import Produto from 'components/Produto';
 import { useState } from 'react';
 import { Container, Voltar, TotalContainer, PagamentoContainer} from './styles';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { useContext } from 'react';
+import { PagamentoContext } from 'common/context/pagamento';
 
 function Carrinho() {
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const {carrinho } = useCarrinhoContext();
+  const { formaPagamento } = useContext(PagamentoContext)
+  const history = useHistory();
+
   return (
     <Container>
-      <Voltar />
+      <Voltar onClick={() => history.goBack()} />
+      {formaPagamento.nome}
       <h2>
         Carrinho
       </h2>
